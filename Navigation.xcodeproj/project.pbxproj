@@ -15,6 +15,7 @@
 		A5BF7F0E29FC5C5000934295 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BF7F0D29FC5C5000934295 /* FeedViewController.swift */; };
 		A5BF7F1029FC5C5D00934295 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BF7F0F29FC5C5D00934295 /* ProfileViewController.swift */; };
 		A5BF7F1229FC5F3200934295 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BF7F1129FC5F3200934295 /* PostViewController.swift */; };
+		A5BF7F1429FC606300934295 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BF7F1329FC606300934295 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A5BF7F0D29FC5C5000934295 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A5BF7F0F29FC5C5D00934295 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A5BF7F1129FC5F3200934295 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		A5BF7F1329FC606300934295 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				A5BF7EF829FC598E00934295 /* AppDelegate.swift */,
+				A5BF7F1329FC606300934295 /* Post.swift */,
 				A5BF7EFA29FC598E00934295 /* SceneDelegate.swift */,
 				A5BF7F0D29FC5C5000934295 /* FeedViewController.swift */,
 				A5BF7F1129FC5F3200934295 /* PostViewController.swift */,
@@ -150,6 +153,7 @@
 				A5BF7EF929FC598E00934295 /* AppDelegate.swift in Sources */,
 				A5BF7F1029FC5C5D00934295 /* ProfileViewController.swift in Sources */,
 				A5BF7F0E29FC5C5000934295 /* FeedViewController.swift in Sources */,
+				A5BF7F1429FC606300934295 /* Post.swift in Sources */,
 				A5BF7EFB29FC598E00934295 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

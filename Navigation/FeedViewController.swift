@@ -8,6 +8,8 @@
 import UIKit
 
 class FeedViewController: UIViewController {
+    
+    var newPost = Post(title:"News for today")
 
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -28,6 +30,7 @@ class FeedViewController: UIViewController {
         }
         @objc func showPost() {
             let postViewController = PostViewController()
+            postViewController.title = newPost.title
             navigationController?.pushViewController(postViewController, animated: true)
         }
 
