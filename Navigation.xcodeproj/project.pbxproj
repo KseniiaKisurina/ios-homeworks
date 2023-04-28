@@ -12,6 +12,8 @@
 		A5BF7EFD29FC598E00934295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BF7EFC29FC598E00934295 /* ViewController.swift */; };
 		A5BF7F0229FC599000934295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BF7F0129FC599000934295 /* Assets.xcassets */; };
 		A5BF7F0529FC599000934295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5BF7F0329FC599000934295 /* LaunchScreen.storyboard */; };
+		A5BF7F0E29FC5C5000934295 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BF7F0D29FC5C5000934295 /* FeedViewController.swift */; };
+		A5BF7F1029FC5C5D00934295 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BF7F0F29FC5C5D00934295 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		A5BF7F0429FC599000934295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5BF7F0629FC599000934295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5BF7F0C29FC59FC00934295 /* .gitignore.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitignore.md; sourceTree = "<group>"; };
+		A5BF7F0D29FC5C5000934295 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		A5BF7F0F29FC5C5D00934295 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 			children = (
 				A5BF7EF829FC598E00934295 /* AppDelegate.swift */,
 				A5BF7EFA29FC598E00934295 /* SceneDelegate.swift */,
+				A5BF7F0D29FC5C5000934295 /* FeedViewController.swift */,
+				A5BF7F0F29FC5C5D00934295 /* ProfileViewController.swift */,
 				A5BF7EFC29FC598E00934295 /* ViewController.swift */,
 				A5BF7F0129FC599000934295 /* Assets.xcassets */,
 				A5BF7F0329FC599000934295 /* LaunchScreen.storyboard */,
@@ -138,6 +144,8 @@
 			files = (
 				A5BF7EFD29FC598E00934295 /* ViewController.swift in Sources */,
 				A5BF7EF929FC598E00934295 /* AppDelegate.swift in Sources */,
+				A5BF7F1029FC5C5D00934295 /* ProfileViewController.swift in Sources */,
+				A5BF7F0E29FC5C5000934295 /* FeedViewController.swift in Sources */,
 				A5BF7EFB29FC598E00934295 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

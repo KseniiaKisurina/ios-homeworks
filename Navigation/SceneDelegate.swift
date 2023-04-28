@@ -13,12 +13,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+       
+            guard let scene = (scene as? UIWindowScene) else { return }
+
+        let window = UIWindow(windowScene: scene)
+        
+        let feedViewController = FeedViewController()
+        let feedNavigationController = UINavigationController(rootViewController: feedViewController)
+     
+        let profileViewController = ProfileViewController()
+        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
+        
+        let tabBarController = UITabBarController()
+        
+        feedNavigationController.tabBarItem.image = UIImage(named: "Feed")
+        feedNavigationController.tabBarItem.title = "Feed"
+
+        profileNavigationController.tabBarItem.title = "Profile"
+        profileNavigationController.tabBarItem.image = UIImage(named: "Profile")
+        profileNavigationController.view.backgroundColor = .darkGray
+        feedNavigationController.view.backgroundColor = .lightGray
+        
+        tabBarController.viewControllers = [profileNavigationController, feedNavigationController]
+        window.rootViewController = tabBarController
+        tabBarController.view.backgroundColor = .gray
+        tabBarController.tabBar.backgroundColor = .systemGray2
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
+    }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
@@ -48,5 +72,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
-}
+
 
