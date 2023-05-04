@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    
+    private var statusText: String = ""
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -62,12 +62,27 @@ class ProfileHeaderView: UIView {
 
     }()
     
+    private  let textField: UITextField = {
+           let textField = UITextField()
+           textField.textColor = .black
+           textField.minimumFontSize = 15
+           textField.backgroundColor = .white
+           textField.layer.cornerRadius = 12
+           textField.layer.borderColor = UIColor.black.cgColor
+           textField.layer.borderWidth = 1
+           textField.placeholder = ""
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+           return textField
+       }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(statusButton)
         addSubview(titleStatus)
         addSubview(titleName)
         addSubview(imageView)
+        addSubview(textField)
     }
     required init?(coder: NSCoder) {
         fatalError()
@@ -75,13 +90,15 @@ class ProfileHeaderView: UIView {
         addSubview(titleStatus)
         addSubview(titleName)
         addSubview(imageView)
+        addSubview(textField)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         
         statusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        
+        textField.addTarget(self, action: #selector(statusTextChanged(_:)), for: .editingChanged)
+
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -99,19 +116,31 @@ class ProfileHeaderView: UIView {
             titleStatus.widthAnchor.constraint(equalToConstant: 150),
            
             
-            statusButton.topAnchor.constraint(equalTo: titleStatus.bottomAnchor, constant: 34),
+            statusButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 15),
             statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             statusButton.heightAnchor.constraint(equalToConstant: 50),
             statusButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             
+            textField.topAnchor.constraint(equalTo: titleStatus.bottomAnchor, constant: 15),
+            textField.heightAnchor.constraint(equalToConstant: 40),
+            textField.widthAnchor.constraint(equalToConstant: 200),
+            textField.leadingAnchor.constraint(equalTo: titleName.leadingAnchor),
+            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
         ])
     }
     
     @objc func buttonPressed() {
-        if titleStatus.text?.isEmpty == false {
-            print(titleStatus.text)
-        } else { print("titleStatus is empty")
+        titleStatus.text = statusText
+        if titleStatus.text  == "" {
+            titleStatus.text = "Enter the status..."
+        }
+    }
+    
+    @objc func statusTextChanged(_ textField: UITextField) {
+        if let titleStatus = textField.text {
+            statusText = titleStatus
         }
     }
 }
