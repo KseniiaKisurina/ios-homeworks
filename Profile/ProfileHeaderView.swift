@@ -80,6 +80,8 @@ class ProfileHeaderView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        statusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -106,4 +108,10 @@ class ProfileHeaderView: UIView {
         ])
     }
     
+    @objc func buttonPressed() {
+        if titleStatus.text?.isEmpty == false {
+            print(titleStatus.text)
+        } else { print("titleStatus is empty")
+        }
+    }
 }
