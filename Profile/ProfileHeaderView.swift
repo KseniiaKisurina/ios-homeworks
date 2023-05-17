@@ -11,7 +11,7 @@ class ProfileHeaderView: UIView {
     
     private var statusText: String = ""
     
-    private lazy var imageView: UIImageView = {
+    private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.borderWidth = 3
         imageView.layer.borderColor = UIColor.white.cgColor
@@ -24,7 +24,7 @@ class ProfileHeaderView: UIView {
 
     }()
     
-    private lazy var statusButton : UIButton = {
+    private lazy var setStatusButton : UIButton = {
         let button = UIButton()
         button.setTitle("Show status", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -40,7 +40,7 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
-    private lazy var titleStatus : UILabel = {
+    private lazy var statusLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .gray
@@ -49,7 +49,7 @@ class ProfileHeaderView: UIView {
         return label
     }()
 
-   private lazy var titleName: UILabel = {
+   private lazy var fullNameLabel: UILabel = {
 
        let label = UILabel()
         label.text = "Hipster Cat"
@@ -62,7 +62,7 @@ class ProfileHeaderView: UIView {
 
     }()
     
-    private  let textField: UITextField = {
+    private  let statusTextField: UITextField = {
            let textField = UITextField()
            textField.textColor = .black
            textField.minimumFontSize = 15
@@ -76,65 +76,70 @@ class ProfileHeaderView: UIView {
            return textField
        }()
     
+    func addSubviews() {
+        addSubview(setStatusButton)
+        addSubview(statusLabel)
+        addSubview(fullNameLabel)
+        addSubview(avatarImageView)
+        addSubview(statusTextField)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(statusButton)
-        addSubview(titleStatus)
-        addSubview(titleName)
-        addSubview(imageView)
-        addSubview(textField)
+        addSubviews()
     }
     required init?(coder: NSCoder) {
         fatalError()
-        addSubview(statusButton)
-        addSubview(titleStatus)
-        addSubview(titleName)
-        addSubview(imageView)
-        addSubview(textField)
+        addSubviews()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        statusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        textField.addTarget(self, action: #selector(statusTextChanged(_:)), for: .editingChanged)
+        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        statusTextField.addTarget(self, action: #selector(statusTextChanged(_:)), for: .editingChanged)
 
-        
+        func layout() {
+            
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            imageView.widthAnchor.constraint(equalToConstant: 100),
-            imageView.heightAnchor.constraint(equalToConstant: 100),
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
             
-            titleName.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
-            titleName.topAnchor.constraint(equalTo: topAnchor, constant: 27),
-            titleName.widthAnchor.constraint(equalToConstant: 100),
+            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 20),
+            fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 27),
+            fullNameLabel.widthAnchor.constraint(equalToConstant: 100),
            
             
-            titleStatus.leadingAnchor.constraint(equalTo: titleName.leadingAnchor),
-            titleStatus.topAnchor.constraint(equalTo: titleName.bottomAnchor, constant: 34),
-            titleStatus.widthAnchor.constraint(equalToConstant: 150),
+            statusLabel.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
+            statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 34),
+            statusLabel.widthAnchor.constraint(equalToConstant: 150),
            
             
-            statusButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 15),
-            statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            statusButton.heightAnchor.constraint(equalToConstant: 50),
-            statusButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 15),
+            setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            setStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            textField.topAnchor.constraint(equalTo: titleStatus.bottomAnchor, constant: 15),
-            textField.heightAnchor.constraint(equalToConstant: 40),
-            textField.widthAnchor.constraint(equalToConstant: 200),
-            textField.leadingAnchor.constraint(equalTo: titleName.leadingAnchor),
-            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 15),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
+            statusTextField.widthAnchor.constraint(equalToConstant: 200),
+            statusTextField.leadingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor),
+            statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
         ])
     }
     
+    
+    layout()
+    }
+    
     @objc func buttonPressed() {
-        titleStatus.text = statusText
-        if titleStatus.text  == "" {
-            titleStatus.text = "Enter the status..."
+        statusLabel.text = statusText
+        if statusLabel.text  == "" {
+            statusLabel.text = "Enter the status..."
         }
     }
     
