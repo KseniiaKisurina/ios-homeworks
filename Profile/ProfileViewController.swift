@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
                   profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                   profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                   profileView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                  profileView.heightAnchor.constraint(equalToConstant: 220)
               ])
 
         profileView.frame = view.frame
