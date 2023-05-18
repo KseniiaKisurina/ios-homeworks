@@ -10,24 +10,61 @@ import UIKit
 class FeedViewController: UIViewController {
     
     var newPost = Post(title:"News for today")
+    
+    private lazy var buttonOne: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = .darkGray
+        button.setTitle("Tap One", for: .normal)
+        button.addTarget(self, action: #selector(showPost), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var buttonTwo: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .darkGray
+        button.setTitle("Tap Two", for: .normal)
+        button.addTarget(self, action: #selector(showPost), for: .touchUpInside)
+    
+    return button
+}()
+    
+    private lazy var stackView: UIStackView = { [unowned self] in
+                                            
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.clipsToBounds = true
+        stackView.alignment = .center
+        stackView.spacing = 10
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        
+        stackView.addArrangedSubview(buttonOne)
+        stackView.addArrangedSubview(buttonTwo)
+        
+        return stackView
+    }()
 
         override func viewDidLoad() {
             super.viewDidLoad()
             view.backgroundColor = UIColor.white
             title = "Feed"
+            
+            view.addSubview(stackView)
+            
+            setupConstraints()
                     
         }
         
-        override func viewDidLayoutSubviews() {
-            super.viewDidLayoutSubviews()
-            
-            let button = UIButton(type: .system)
-            button.frame = CGRect(origin: CGPoint(x: 30, y: 120), size:CGSize(width: 150, height: 30))
-            button.setTitle("Post", for: .normal)
-            button.backgroundColor = .green
-            view.addSubview(button)
-            button.addTarget(self, action: #selector(showPost), for: .touchUpInside)
-        }
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200)
+        ])
+    }
+
         @objc func showPost() {
             let postViewController = PostViewController()
             postViewController.title = newPost.title

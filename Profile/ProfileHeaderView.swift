@@ -90,7 +90,6 @@ class ProfileHeaderView: UIView {
     }
     required init?(coder: NSCoder) {
         fatalError()
-        addSubviews()
     }
 
     override func layoutSubviews() {
