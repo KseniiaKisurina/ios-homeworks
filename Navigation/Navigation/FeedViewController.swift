@@ -12,7 +12,7 @@ class FeedViewController: UIViewController {
     var newPost = Post(title:"News for today")
     
     private lazy var buttonOne: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.backgroundColor = .darkGray
         button.setTitle("Tap One", for: .normal)
         button.addTarget(self, action: #selector(showPost), for: .touchUpInside)
@@ -25,12 +25,12 @@ class FeedViewController: UIViewController {
         button.backgroundColor = .darkGray
         button.setTitle("Tap Two", for: .normal)
         button.addTarget(self, action: #selector(showPost), for: .touchUpInside)
-    
-    return button
-}()
+        
+        return button
+    }()
     
     private lazy var stackView: UIStackView = { [unowned self] in
-                                            
+        
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.clipsToBounds = true
@@ -44,18 +44,17 @@ class FeedViewController: UIViewController {
         
         return stackView
     }()
-
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            view.backgroundColor = UIColor.white
-            title = "Feed"
-            
-            view.addSubview(stackView)
-            
-            setupConstraints()
-                    
-        }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.white
+        title = "Feed"
         
+        view.addSubview(stackView)
+        
+        setupConstraints()
+    }
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -64,12 +63,10 @@ class FeedViewController: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200)
         ])
     }
-
-        @objc func showPost() {
-            let postViewController = PostViewController()
-            postViewController.title = newPost.title
-            navigationController?.pushViewController(postViewController, animated: true)
-        }
-
-
+    
+    @objc func showPost() {
+        let postViewController = PostViewController()
+        postViewController.title = newPost.title
+        navigationController?.pushViewController(postViewController, animated: true)
+    }
 }
