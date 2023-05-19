@@ -48,6 +48,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A51C42642A17742B008F3166 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A5BF7F1129FC5F3200934295 /* PostViewController.swift */,
+				A5BF7EFC29FC598E00934295 /* ViewController.swift */,
+				A5BF7F0D29FC5C5000934295 /* FeedViewController.swift */,
+				A5BF7EFA29FC598E00934295 /* SceneDelegate.swift */,
+				A5BF7F1329FC606300934295 /* Post.swift */,
+				A5BF7F1529FC618B00934295 /* InfoViewController.swift */,
+				A5BF7EF829FC598E00934295 /* AppDelegate.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		A58206572A01755B00A6F3E6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -60,7 +74,6 @@
 		A5BF7EEC29FC598E00934295 = {
 			isa = PBXGroup;
 			children = (
-				A58206572A01755B00A6F3E6 /* Profile */,
 				A5BF7EF729FC598E00934295 /* Navigation */,
 				A5BF7EF629FC598E00934295 /* Products */,
 			);
@@ -77,13 +90,8 @@
 		A5BF7EF729FC598E00934295 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				A5BF7EF829FC598E00934295 /* AppDelegate.swift */,
-				A5BF7F1529FC618B00934295 /* InfoViewController.swift */,
-				A5BF7F1329FC606300934295 /* Post.swift */,
-				A5BF7EFA29FC598E00934295 /* SceneDelegate.swift */,
-				A5BF7F0D29FC5C5000934295 /* FeedViewController.swift */,
-				A5BF7F1129FC5F3200934295 /* PostViewController.swift */,
-				A5BF7EFC29FC598E00934295 /* ViewController.swift */,
+				A58206572A01755B00A6F3E6 /* Profile */,
+				A51C42642A17742B008F3166 /* Navigation */,
 				A5BF7F0129FC599000934295 /* Assets.xcassets */,
 				A5BF7F0329FC599000934295 /* LaunchScreen.storyboard */,
 				A5BF7F0C29FC59FC00934295 /* .gitignore.md */,
